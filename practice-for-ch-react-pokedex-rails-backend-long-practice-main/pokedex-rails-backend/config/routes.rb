@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :pokemon, only: [:index, :show, :create, :update ] do 
       resources :items, only: [:index, :create]
-
+      get 'types', on: :collection
       
       
     end
-    get '/pokemon/types', to: 'pokemon#types'
+   
     resources :items, only: [:update, :destroy] 
   end
 
